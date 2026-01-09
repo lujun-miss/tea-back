@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内容管理 - 茶叶商城后台</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>茶叶商城</h1>
+            <p>后台管理系统</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="../index.html" class="sidebar-nav-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="user-list.html" class="sidebar-nav-item">
+                <i class="fas fa-users"></i>
+                <span>用户管理</span>
+            </a>
+            <a href="product-list.html" class="sidebar-nav-item">
+                <i class="fas fa-box"></i>
+                <span>商品管理</span>
+            </a>
+            <a href="order-list.html" class="sidebar-nav-item">
+                <i class="fas fa-shopping-cart"></i>
+                <span>订单管理</span>
+            </a>
+            <a href="article-list.html" class="sidebar-nav-item active">
+                <i class="fas fa-newspaper"></i>
+                <span>内容管理</span>
+            </a>
+            <a href="finance.html" class="sidebar-nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>财务管理</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h2>内容管理</h2>
+            <div class="header-actions">
+                <button class="btn btn-primary" onclick="openAddArticleModal()">
+                    <i class="fas fa-plus"></i>
+                    添加文章
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="搜索文章标题或作者">
+                <select class="filter-select">
+                    <option value="">全部分类</option>
+                    <option value="culture">茶文化</option>
+                    <option value="knowledge">茶知识</option>
+                    <option value="health">茶与健康</option>
+                    <option value="history">茶历史</option>
+                    <option value="art">茶艺</option>
+                </select>
+                <select class="filter-select">
+                    <option value="">全部状态</option>
+                    <option value="published">已发布</option>
+                    <option value="draft">草稿</option>
+                    <option value="offline">已下线</option>
+                </select>
+                <button class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                    搜索
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>文章信息</th>
+                            <th>分类</th>
+                            <th>作者</th>
+                            <th>阅读量</th>
+                            <th>点赞数</th>
+                            <th>发布时间</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=100&h=100&fit=crop" alt="文章封面" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">西湖龙井的历史渊源与文化传承</span>
+                                        <span class="user-phone">ART001</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>茶文化</td>
+                            <td>茶艺师小李</td>
+                            <td>2,580</td>
+                            <td>156</td>
+                            <td>2024-01-08 10:30</td>
+                            <td><span class="status-badge success">已发布</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewArticle(1)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editArticle(1)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteArticle(1)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=100&h=100&fit=crop" alt="文章封面" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">如何正确冲泡一杯好茶</span>
+                                        <span class="user-phone">ART002</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>茶知识</td>
+                            <td>茶艺师小王</td>
+                            <td>1,890</td>
+                            <td>98</td>
+                            <td>2024-01-07 14:20</td>
+                            <td><span class="status-badge success">已发布</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewArticle(2)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editArticle(2)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteArticle(2)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=100&h=100&fit=crop" alt="文章封面" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">普洱茶的养生功效与饮用禁忌</span>
+                                        <span class="user-phone">ART003</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>茶与健康</td>
+                            <td>茶艺师小张</td>
+                            <td>3,280</td>
+                            <td>234</td>
+                            <td>2024-01-06 09:15</td>
+                            <td><span class="status-badge success">已发布</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewArticle(3)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editArticle(3)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteArticle(3)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=100&h=100&fit=crop" alt="文章封面" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">中国茶文化的发展历程</span>
+                                        <span class="user-phone">ART004</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>茶历史</td>
+                            <td>茶艺师小赵</td>
+                            <td>4,560</td>
+                            <td>312</td>
+                            <td>2024-01-05 16:45</td>
+                            <td><span class="status-badge success">已发布</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewArticle(4)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editArticle(4)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteArticle(4)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=100&h=100&fit=crop" alt="文章封面" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">茶艺表演的基本技巧</span>
+                                        <span class="user-phone">ART005</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>茶艺</td>
+                            <td>茶艺师小孙</td>
+                            <td>1,680</td>
+                                    <td>89</td>
+                            <td>2024-01-04 11:30</td>
+                            <td><span class="status-badge warning">草稿</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewArticle(5)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editArticle(5)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteArticle(5)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=100&h=100&fit=crop" alt="文章封面" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">茉莉花茶的制作工艺</span>
+                                        <span class="user-phone">ART006</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>茶知识</td>
+                            <td>茶艺师小周</td>
+                            <td>2,890</td>
+                            <td>178</td>
+                            <td>2024-01-03 14:20</td>
+                            <td><span class="status-badge danger">已下线</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewArticle(6)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editArticle(6)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteArticle(6)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn">4</button>
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <span class="pagination-info">共 89 条记录</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="articleModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">添加文章</h3>
+                <button class="modal-close" onclick="closeArticleModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="articleForm">
+                    <div class="form-group">
+                        <label>文章标题</label>
+                        <input type="text" name="title" required placeholder="请输入文章标题">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>分类</label>
+                            <select name="category">
+                                <option value="culture">茶文化</option>
+                                <option value="knowledge">茶知识</option>
+                                <option value="health">茶与健康</option>
+                                <option value="history">茶历史</option>
+                                <option value="art">茶艺</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>作者</label>
+                            <input type="text" name="author" required placeholder="请输入作者姓名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>封面图片</label>
+                        <input type="file" name="coverImage" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label>摘要</label>
+                        <textarea name="summary" placeholder="请输入文章摘要" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>文章内容</label>
+                        <textarea name="content" placeholder="请输入文章内容" rows="10"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>状态</label>
+                            <select name="status">
+                                <option value="draft">草稿</option>
+                                <option value="published">已发布</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>是否置顶</label>
+                            <select name="isTop">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeArticleModal()">取消</button>
+                <button class="btn btn-primary" onclick="saveArticle()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openAddArticleModal() {
+            document.getElementById('modalTitle').textContent = '添加文章';
+            document.getElementById('articleForm').reset();
+            document.getElementById('articleModal').classList.add('active');
+        }
+
+        function closeArticleModal() {
+            document.getElementById('articleModal').classList.remove('active');
+        }
+
+        function saveArticle() {
+            alert('文章保存成功！');
+            closeArticleModal();
+        }
+
+        function viewArticle(articleId) {
+            alert('查看文章详情，文章ID: ' + articleId);
+        }
+
+        function editArticle(articleId) {
+            document.getElementById('modalTitle').textContent = '编辑文章';
+            document.getElementById('articleModal').classList.add('active');
+        }
+
+        function deleteArticle(articleId) {
+            if (confirm('确认删除该文章？')) {
+                alert('文章删除成功！');
+            }
+        }
+
+        document.querySelectorAll('.sidebar-nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                document.querySelectorAll('.sidebar-nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单管理 - 茶叶商城后台</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>茶叶商城</h1>
+            <p>后台管理系统</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="../index.html" class="sidebar-nav-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="user-list.html" class="sidebar-nav-item">
+                <i class="fas fa-users"></i>
+                <span>用户管理</span>
+            </a>
+            <a href="product-list.html" class="sidebar-nav-item">
+                <i class="fas fa-box"></i>
+                <span>商品管理</span>
+            </a>
+            <a href="order-list.html" class="sidebar-nav-item active">
+                <i class="fas fa-shopping-cart"></i>
+                <span>订单管理</span>
+            </a>
+            <a href="article-list.html" class="sidebar-nav-item">
+                <i class="fas fa-newspaper"></i>
+                <span>内容管理</span>
+            </a>
+            <a href="finance.html" class="sidebar-nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>财务管理</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h2>订单管理</h2>
+            <div class="header-actions">
+                <button class="btn btn-secondary">
+                    <i class="fas fa-download"></i>
+                    导出订单
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="搜索订单编号、客户姓名或手机号">
+                <select class="filter-select">
+                    <option value="">全部状态</option>
+                    <option value="pending">待支付</option>
+                    <option value="paid">待发货</option>
+                    <option value="shipped">已发货</option>
+                    <option value="completed">已完成</option>
+                    <option value="cancelled">已取消</option>
+                </select>
+                <select class="filter-select">
+                    <option value="">全部支付方式</option>
+                    <option value="wechat">微信支付</option>
+                    <option value="alipay">支付宝</option>
+                    <option value="balance">余额支付</option>
+                </select>
+                <input type="date" class="search-input" placeholder="开始日期">
+                <input type="date" class="search-input" placeholder="结束日期">
+                <button class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                    搜索
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>订单编号</th>
+                            <th>客户信息</th>
+                            <th>商品信息</th>
+                            <th>订单金额</th>
+                            <th>支付方式</th>
+                            <th>订单状态</th>
+                            <th>下单时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ORD20240109001</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">张三</span>
+                                        <span class="user-phone">138****8888</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
+                                        <div class="order-item-info">
+                                            <div class="order-item-name">西湖龙井 2024春茶</div>
+                                            <div class="order-item-spec">250g</div>
+                                        </div>
+                                        <div class="order-item-quantity">x2</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>¥576</td>
+                            <td>微信支付</td>
+                            <td><span class="status-badge success">已完成</span></td>
+                            <td>2024-01-09 14:30</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewOrder('ORD20240109001')">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ORD20240109002</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">李四</span>
+                                        <span class="user-phone">139****9999</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
+                                        <div class="order-item-info">
+                                            <div class="order-item-name">金骏眉 正山小种</div>
+                                            <div class="order-item-spec">250g</div>
+                                        </div>
+                                        <div class="order-item-quantity">x1</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>¥368</td>
+                            <td>微信支付</td>
+                            <td><span class="status-badge warning">待发货</span></td>
+                            <td>2024-01-09 13:45</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewOrder('ORD20240109002')">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="shipOrder('ORD20240109002')">
+                                        <i class="fas fa-shipping-fast"></i>
+                                        发货
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ORD20240109003</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">王五</span>
+                                        <span class="user-phone">137****7777</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
+                                        <div class="order-item-info">
+                                            <div class="order-item-name">普洱熟茶 2018</div>
+                                            <div class="order-item-spec">357g</div>
+                                        </div>
+                                        <div class="order-item-quantity">x1</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>¥288</td>
+                            <td>支付宝</td>
+                            <td><span class="status-badge info">待支付</span></td>
+                            <td>2024-01-09 12:30</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewOrder('ORD20240109003')">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ORD20240109004</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">赵六</span>
+                                        <span class="user-phone">136****6666</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
+                                        <div class="order-item-info">
+                                            <div class="order-item-name">铁观音 安溪铁观音</div>
+                                            <div class="order-item-spec">250g</div>
+                                        </div>
+                                        <div class="order-item-quantity">x2</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>¥496</td>
+                            <td>微信支付</td>
+                            <td><span class="status-badge danger">已取消</span></td>
+                            <td>2024-01-09 11:15</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewOrder('ORD20240109004')">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ORD20240109005</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">孙七</span>
+                                        <span class="user-phone">135****5555</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
+                                        <div class="order-item-info">
+                                            <div class="order-item-name">西湖龙井 2024春茶</div>
+                                            <div class="order-item-spec">250g</div>
+                                        </div>
+                                        <div class="order-item-quantity">x1</div>
+                                    </div>
+                                    <div class="order-item">
+                                        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
+                                        <div class="order-item-info">
+                                            <div class="order-item-name">金骏眉 正山小种</div>
+                                            <div class="order-item-spec">250g</div>
+                                        </div>
+                                        <div class="order-item-quantity">x1</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>¥656</td>
+                            <td>余额支付</td>
+                            <td><span class="status-badge purple">已发货</span></td>
+                            <td>2024-01-09 10:20</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewOrder('ORD20240109005')">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="completeOrder('ORD20240109005')">
+                                        <i class="fas fa-check"></i>
+                                        完成
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn">4</button>
+                <button class="pagination-btn">5</button>
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <span class="pagination-info">共 256 条记录</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>订单详情</h3>
+                <button class="modal-close" onclick="closeOrderModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>订单编号</label>
+                    <input type="text" value="ORD20240109001" readonly>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>客户姓名</label>
+                        <input type="text" value="张三" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>联系电话</label>
+                        <input type="text" value="138****8888" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>收货地址</label>
+                    <input type="text" value="浙江省杭州市西湖区文三路 123 号茶叶大厦 5 楼" readonly>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>订单金额</label>
+                        <input type="text" value="¥576" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>支付方式</label>
+                        <input type="text" value="微信支付" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>订单状态</label>
+                    <select name="status">
+                        <option value="pending">待支付</option>
+                        <option value="paid">待发货</option>
+                        <option value="shipped">已发货</option>
+                        <option value="completed" selected>已完成</option>
+                        <option value="cancelled">已取消</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>商品信息</label>
+                    <div class="order-items">
+                        <div class="order-item">
+                            <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
+                            <div class="order-item-info">
+                                <div class="order-item-name">西湖龙井 2024春茶</div>
+                                <div class="order-item-spec">250g</div>
+                            </div>
+                            <div class="order-item-quantity">x2</div>
+                            <div class="order-item-quantity">¥288</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>备注</label>
+                    <textarea name="remark" placeholder="请输入备注信息"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeOrderModal()">关闭</button>
+                <button class="btn btn-primary" onclick="saveOrder()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="shipModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>发货</h3>
+                <button class="modal-close" onclick="closeShipModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>物流公司</label>
+                    <select name="logistics">
+                        <option value="sf">顺丰速运</option>
+                        <option value="sto">申通快递</option>
+                        <option value="yt">圆通速递</option>
+                        <option value="zto">中通快递</option>
+                        <option value="ems">EMS</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>物流单号</label>
+                    <input type="text" name="trackingNumber" placeholder="请输入物流单号">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeShipModal()">取消</button>
+                <button class="btn btn-primary" onclick="confirmShip()">确认发货</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function viewOrder(orderId) {
+            document.getElementById('orderModal').classList.add('active');
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.remove('active');
+        }
+
+        function saveOrder() {
+            alert('订单信息保存成功！');
+            closeOrderModal();
+        }
+
+        function shipOrder(orderId) {
+            document.getElementById('shipModal').classList.add('active');
+        }
+
+        function closeShipModal() {
+            document.getElementById('shipModal').classList.remove('active');
+        }
+
+        function confirmShip() {
+            alert('发货成功！');
+            closeShipModal();
+        }
+
+        function completeOrder(orderId) {
+            if (confirm('确认完成该订单？')) {
+                alert('订单已完成！');
+            }
+        }
+
+        document.querySelectorAll('.sidebar-nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                document.querySelectorAll('.sidebar-nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

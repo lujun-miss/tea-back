@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>茶叶商城后台管理系统</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>茶叶商城</h1>
+            <p>后台管理系统</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-nav-item active">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="pages/user-list.html" class="sidebar-nav-item">
+                <i class="fas fa-users"></i>
+                <span>用户管理</span>
+            </a>
+            <a href="pages/product-list.html" class="sidebar-nav-item">
+                <i class="fas fa-box"></i>
+                <span>商品管理</span>
+            </a>
+            <a href="pages/order-list.html" class="sidebar-nav-item">
+                <i class="fas fa-shopping-cart"></i>
+                <span>订单管理</span>
+            </a>
+            <a href="pages/article-list.html" class="sidebar-nav-item">
+                <i class="fas fa-newspaper"></i>
+                <span>内容管理</span>
+            </a>
+            <a href="pages/finance.html" class="sidebar-nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>财务管理</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h2>数据概览</h2>
+            <div class="header-actions">
+                <button class="btn btn-secondary">
+                    <i class="fas fa-download"></i>
+                    导出报表
+                </button>
+                <button class="btn btn-primary">
+                    <i class="fas fa-sync"></i>
+                    刷新数据
+                </button>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon green">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>今日订单</h4>
+                    <div class="value">128</div>
+                    <div class="trend"><i class="fas fa-arrow-up"></i> 12.5%</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon blue">
+                    <i class="fas fa-yen-sign"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>今日销售额</h4>
+                    <div class="value">¥45,680</div>
+                    <div class="trend"><i class="fas fa-arrow-up"></i> 8.3%</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>新增用户</h4>
+                    <div class="value">56</div>
+                    <div class="trend"><i class="fas fa-arrow-up"></i> 15.2%</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon purple">
+                    <i class="fas fa-box"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>待处理订单</h4>
+                    <div class="value">23</div>
+                    <div class="trend"><i class="fas fa-arrow-down"></i> 5.1%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>近7天销售趋势</h3>
+                <div class="filter-select">
+                    <select>
+                        <option>近7天</option>
+                        <option>近30天</option>
+                        <option>近90天</option>
+                    </select>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-bar" style="height: 60%;">
+                    <div class="chart-bar-value">¥12,580</div>
+                    <div class="chart-bar-label">周一</div>
+                </div>
+                <div class="chart-bar" style="height: 75%;">
+                    <div class="chart-bar-value">¥15,680</div>
+                    <div class="chart-bar-label">周二</div>
+                </div>
+                <div class="chart-bar" style="height: 55%;">
+                    <div class="chart-bar-value">¥11,280</div>
+                    <div class="chart-bar-label">周三</div>
+                </div>
+                <div class="chart-bar" style="height: 85%;">
+                    <div class="chart-bar-value">¥18,680</div>
+                    <div class="chart-bar-label">周四</div>
+                </div>
+                <div class="chart-bar" style="height: 70%;">
+                    <div class="chart-bar-value">¥14,680</div>
+                    <div class="chart-bar-label">周五</div>
+                </div>
+                <div class="chart-bar" style="height: 90%;">
+                    <div class="chart-bar-value">¥19,680</div>
+                    <div class="chart-bar-label">周六</div>
+                </div>
+                <div class="chart-bar" style="height: 80%;">
+                    <div class="chart-bar-value">¥16,680</div>
+                    <div class="chart-bar-label">周日</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>最近订单</h3>
+                <a href="pages/order-list.html" class="btn btn-secondary">
+                    查看全部
+                </a>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>订单编号</th>
+                            <th>客户信息</th>
+                            <th>商品信息</th>
+                            <th>订单金额</th>
+                            <th>订单状态</th>
+                            <th>下单时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ORD20240109001</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">张三</span>
+                                        <span class="user-phone">138****8888</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
+                                        <div class="order-item-info">
+                                            <div class="order-item-name">西湖龙井 2024春茶</div>
+                                            <div class="order-item-spec">250g</div>
+                                        </div>
+                                        <div class="order-item-quantity">x2</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>¥576</td>
+                            <td>
+                                <span class="status-badge success">已完成</span>
+                            </td>
+                            <td>2024-01-09 14:30</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ORD20240109002</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">李四</span>
+                                        <span class="user-phone">139****9999</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
+                                        <div class="order-item-info">
+                                            <div class="order-item-name">金骏眉 正山小种</div>
+                                            <div class="order-item-spec">250g</div>
+                                        </div>
+                                        <div class="order-item-quantity">x1</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>¥368</td>
+                            <td>
+                                <span class="status-badge warning">待发货</span>
+                            </td>
+                            <td>2024-01-09 13:45</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit">
+                                        <i class="fas fa-shipping-fast"></i>
+                                        发货
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ORD20240109003</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">王五</span>
+                                        <span class="user-phone">137****7777</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
+                                        <div class="order-item-info">
+                                            <div class="order-item-name">普洱熟茶 2018</div>
+                                            <div class="order-item-spec">357g</div>
+                                        </div>
+                                        <div class="order-item-quantity">x1</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>¥288</td>
+                            <td>
+                                <span class="status-badge info">待支付</span>
+                            </td>
+                            <td>2024-01-09 12:30</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ORD20240109004</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">赵六</span>
+                                        <span class="user-phone">136****6666</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
+                                        <div class="order-item-info">
+                                            <div class="order-item-name">铁观音 安溪铁观音</div>
+                                            <div class="order-item-spec">250g</div>
+                                        </div>
+                                        <div class="order-item-quantity">x2</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>¥496</td>
+                            <td>
+                                <span class="status-badge danger">已取消</span>
+                            </td>
+                            <td>2024-01-09 11:15</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ORD20240109005</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">孙七</span>
+                                        <span class="user-phone">135****5555</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
+                                        <div class="order-item-info">
+                                            <div class="order-item-name">西湖龙井 2024春茶</div>
+                                            <div class="order-item-spec">250g</div>
+                                        </div>
+                                        <div class="order-item-quantity">x1</div>
+                                    </div>
+                                    <div class="order-item">
+                                        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
+                                        <div class="order-item-info">
+                                            <div class="order-item-name">金骏眉 正山小种</div>
+                                            <div class="order-item-spec">250g</div>
+                                        </div>
+                                        <div class="order-item-quantity">x1</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>¥656</td>
+                            <td>
+                                <span class="status-badge success">已完成</span>
+                            </td>
+                            <td>2024-01-09 10:20</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <span class="pagination-info">共 50 条记录</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.sidebar-nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                document.querySelectorAll('.sidebar-nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const action = this.textContent.trim();
+                if (action === '查看') {
+                    alert('查看订单详情');
+                } else if (action === '发货') {
+                    if (confirm('确认发货？')) {
+                        alert('发货成功！');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

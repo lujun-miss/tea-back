@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发货配置 - 茶叶商城后台</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>茶叶商城</h1>
+            <p>后台管理系统</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="../index.html" class="sidebar-nav-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="user-list.html" class="sidebar-nav-item">
+                <i class="fas fa-users"></i>
+                <span>用户管理</span>
+            </a>
+            <a href="product-list.html" class="sidebar-nav-item">
+                <i class="fas fa-box"></i>
+                <span>商品管理</span>
+            </a>
+            <a href="order-list.html" class="sidebar-nav-item">
+                <i class="fas fa-shopping-cart"></i>
+                <span>订单管理</span>
+            </a>
+            <a href="article-list.html" class="sidebar-nav-item">
+                <i class="fas fa-newspaper"></i>
+                <span>内容管理</span>
+            </a>
+            <a href="shop-list.html" class="sidebar-nav-item">
+                <i class="fas fa-store"></i>
+                <span>店铺管理</span>
+            </a>
+            <a href="shipping-config.html" class="sidebar-nav-item active">
+                <i class="fas fa-shipping-fast"></i>
+                <span>发货配置</span>
+            </a>
+            <a href="finance.html" class="sidebar-nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>财务管理</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h2>发货配置</h2>
+            <div class="header-actions">
+                <button class="btn btn-primary" onclick="openAddShippingModal()">
+                    <i class="fas fa-plus"></i>
+                    添加物流公司
+                </button>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon green">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>物流公司</h4>
+                    <div class="value">6</div>
+                    <div class="trend"><i class="fas fa-arrow-up"></i> 1家</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon blue">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>运费模板</h4>
+                    <div class="value">3</div>
+                    <div class="trend"><i class="fas fa-minus"></i> 0个</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>今日发货</h4>
+                    <div class="value">45</div>
+                    <div class="trend"><i class="fas fa-arrow-up"></i> 12单</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon purple">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>自提点</h4>
+                    <div class="value">8</div>
+                    <div class="trend"><i class="fas fa-arrow-up"></i> 2个</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>物流公司管理</h3>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>物流公司</th>
+                            <th>公司代码</th>
+                            <th>联系电话</th>
+                            <th>官网地址</th>
+                            <th>使用次数</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=100&h=100&fit=crop" alt="物流公司" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">顺丰速运</span>
+                                        <span class="user-phone">SF Express</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>SF</td>
+                            <td>95338</td>
+                            <td>www.sf-express.com</td>
+                            <td>1,256</td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn edit" onclick="editShipping(1)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteShipping(1)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=100&h=100&fit=crop" alt="物流公司" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">中通快递</span>
+                                        <span class="user-phone">ZTO Express</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>ZTO</td>
+                            <td>95311</td>
+                            <td>www.zto.com</td>
+                            <td>892</td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn edit" onclick="editShipping(2)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteShipping(2)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=100&h=100&fit=crop" alt="物流公司" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">圆通速递</span>
+                                        <span class="user-phone">YTO Express</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>YTO</td>
+                            <td>95554</td>
+                            <td>www.yto.net.cn</td>
+                            <td>654</td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn edit" onclick="editShipping(3)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteShipping(3)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=100&h=100&fit=crop" alt="物流公司" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">韵达快递</span>
+                                        <span class="user-phone">Yunda Express</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>YD</td>
+                            <td>95546</td>
+                            <td>www.yundaex.com</td>
+                            <td>423</td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn edit" onclick="editShipping(4)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteShipping(4)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=100&h=100&fit=crop" alt="物流公司" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">申通快递</span>
+                                        <span class="user-phone">STO Express</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>STO</td>
+                            <td>95543</td>
+                            <td>www.sto.cn</td>
+                            <td>312</td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn edit" onclick="editShipping(5)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteShipping(5)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1605806616949-1e87b487bc2a?w=100&h=100&fit=crop" alt="物流公司" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">京东物流</span>
+                                        <span class="user-phone">JD Logistics</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>JD</td>
+                            <td>950616</td>
+                            <td>www.jdl.com</td>
+                            <td>234</td>
+                            <td><span class="status-badge warning">停用</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn edit" onclick="editShipping(6)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteShipping(6)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>运费模板</h3>
+                <button class="btn btn-primary" onclick="openAddTemplateModal()">
+                    <i class="fas fa-plus"></i>
+                    添加模板
+                </button>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>模板名称</th>
+                            <th>计费方式</th>
+                            <th>首件/首重</th>
+                            <th>首件运费</th>
+                            <th>续件/续重</th>
+                            <th>续件运费</th>
+                            <th>使用商品</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>全国包邮</td>
+                            <td>按件数</td>
+                            <td>1件</td>
+                            <td>¥0</td>
+                            <td>1件</td>
+                            <td>¥0</td>
+                            <td>45件</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewTemplate(1)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editTemplate(1)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteTemplate(1)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>标准运费</td>
+                            <td>按重量</td>
+                            <td>1kg</td>
+                            <td>¥10</td>
+                            <td>1kg</td>
+                            <td>¥5</td>
+                            <td>68件</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewTemplate(2)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editTemplate(2)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteTemplate(2)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>偏远地区运费</td>
+                            <td>按重量</td>
+                            <td>1kg</td>
+                            <td>¥15</td>
+                            <td>1kg</td>
+                            <td>¥8</td>
+                            <td>12件</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewTemplate(3)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editTemplate(3)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteTemplate(3)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>自提点管理</h3>
+                <button class="btn btn-primary" onclick="openAddPickupModal()">
+                    <i class="fas fa-plus"></i>
+                    添加自提点
+                </button>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>自提点名称</th>
+                            <th>地址</th>
+                            <th>联系人</th>
+                            <th>联系电话</th>
+                            <th>营业时间</th>
+                            <th>使用次数</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>西湖区自提点</td>
+                            <td>杭州市西湖区文三路123号</td>
+                            <td>张经理</td>
+                            <td>138****8888</td>
+                            <td>09:00-21:00</td>
+                            <td>256</td>
+                            <td><span class="status-badge success">营业中</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn edit" onclick="editPickup(1)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deletePickup(1)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>滨江区自提点</td>
+                            <td>杭州市滨江区江南大道456号</td>
+                            <td>李经理</td>
+                            <td>139****9999</td>
+                            <td>08:30-20:30</td>
+                            <td>189</td>
+                            <td><span class="status-badge success">营业中</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn edit" onclick="editPickup(2)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deletePickup(2)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>余杭区自提点</td>
+                            <td>杭州市余杭区文一西路789号</td>
+                            <td>王经理</td>
+                            <td>137****7777</td>
+                            <td>09:00-21:00</td>
+                            <td>145</td>
+                            <td><span class="status-badge success">营业中</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn edit" onclick="editPickup(3)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deletePickup(3)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>萧山区自提点</td>
+                            <td>杭州市萧山区市心路321号</td>
+                            <td>赵经理</td>
+                            <td>136****6666</td>
+                            <td>08:00-20:00</td>
+                            <td>98</td>
+                            <td><span class="status-badge success">营业中</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn edit" onclick="editPickup(4)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deletePickup(4)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="addShippingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>添加物流公司</h3>
+                <button class="modal-close" onclick="closeAddShippingModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addShippingForm">
+                    <div class="form-group">
+                        <label>物流公司名称</label>
+                        <input type="text" class="form-control" placeholder="请输入物流公司名称" required>
+                    </div>
+                    <div class="form-group">
+                        <label>公司代码</label>
+                        <input type="text" class="form-control" placeholder="请输入公司代码" required>
+                    </div>
+                    <div class="form-group">
+                        <label>联系电话</label>
+                        <input type="tel" class="form-control" placeholder="请输入联系电话" required>
+                    </div>
+                    <div class="form-group">
+                        <label>官网地址</label>
+                        <input type="url" class="form-control" placeholder="请输入官网地址">
+                    </div>
+                    <div class="form-group">
+                        <label>状态</label>
+                        <select class="form-control" required>
+                            <option value="enabled">启用</option>
+                            <option value="disabled">停用</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAddShippingModal()">取消</button>
+                <button class="btn btn-primary" onclick="saveShipping()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="addTemplateModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>添加运费模板</h3>
+                <button class="modal-close" onclick="closeAddTemplateModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addTemplateForm">
+                    <div class="form-group">
+                        <label>模板名称</label>
+                        <input type="text" class="form-control" placeholder="请输入模板名称" required>
+                    </div>
+                    <div class="form-group">
+                        <label>计费方式</label>
+                        <select class="form-control" required>
+                            <option value="weight">按重量</option>
+                            <option value="quantity">按件数</option>
+                            <option value="volume">按体积</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>首件/首重</label>
+                        <input type="number" class="form-control" placeholder="请输入首件/首重" required>
+                    </div>
+                    <div class="form-group">
+                        <label>首件运费（元）</label>
+                        <input type="number" class="form-control" placeholder="请输入首件运费" required>
+                    </div>
+                    <div class="form-group">
+                        <label>续件/续重</label>
+                        <input type="number" class="form-control" placeholder="请输入续件/续重" required>
+                    </div>
+                    <div class="form-group">
+                        <label>续件运费（元）</label>
+                        <input type="number" class="form-control" placeholder="请输入续件运费" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAddTemplateModal()">取消</button>
+                <button class="btn btn-primary" onclick="saveTemplate()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="addPickupModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>添加自提点</h3>
+                <button class="modal-close" onclick="closeAddPickupModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addPickupForm">
+                    <div class="form-group">
+                        <label>自提点名称</label>
+                        <input type="text" class="form-control" placeholder="请输入自提点名称" required>
+                    </div>
+                    <div class="form-group">
+                        <label>地址</label>
+                        <input type="text" class="form-control" placeholder="请输入地址" required>
+                    </div>
+                    <div class="form-group">
+                        <label>联系人</label>
+                        <input type="text" class="form-control" placeholder="请输入联系人" required>
+                    </div>
+                    <div class="form-group">
+                        <label>联系电话</label>
+                        <input type="tel" class="form-control" placeholder="请输入联系电话" required>
+                    </div>
+                    <div class="form-group">
+                        <label>营业时间</label>
+                        <input type="text" class="form-control" placeholder="例如：09:00-21:00" required>
+                    </div>
+                    <div class="form-group">
+                        <label>状态</label>
+                        <select class="form-control" required>
+                            <option value="open">营业中</option>
+                            <option value="closed">暂停营业</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAddPickupModal()">取消</button>
+                <button class="btn btn-primary" onclick="savePickup()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.sidebar-nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                document.querySelectorAll('.sidebar-nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        function openAddShippingModal() {
+            document.getElementById('addShippingModal').style.display = 'block';
+        }
+
+        function closeAddShippingModal() {
+            document.getElementById('addShippingModal').style.display = 'none';
+        }
+
+        function saveShipping() {
+            const form = document.getElementById('addShippingForm');
+            if (form.checkValidity()) {
+                alert('物流公司添加成功！');
+                closeAddShippingModal();
+                form.reset();
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        function editShipping(id) {
+            alert('编辑物流公司 - ID: ' + id);
+        }
+
+        function deleteShipping(id) {
+            if (confirm('确认删除该物流公司？')) {
+                alert('物流公司删除成功！');
+            }
+        }
+
+        function openAddTemplateModal() {
+            document.getElementById('addTemplateModal').style.display = 'block';
+        }
+
+        function closeAddTemplateModal() {
+            document.getElementById('addTemplateModal').style.display = 'none';
+        }
+
+        function saveTemplate() {
+            const form = document.getElementById('addTemplateForm');
+            if (form.checkValidity()) {
+                alert('运费模板添加成功！');
+                closeAddTemplateModal();
+                form.reset();
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        function viewTemplate(id) {
+            alert('查看运费模板详情 - ID: ' + id);
+        }
+
+        function editTemplate(id) {
+            alert('编辑运费模板 - ID: ' + id);
+        }
+
+        function deleteTemplate(id) {
+            if (confirm('确认删除该运费模板？')) {
+                alert('运费模板删除成功！');
+            }
+        }
+
+        function openAddPickupModal() {
+            document.getElementById('addPickupModal').style.display = 'block';
+        }
+
+        function closeAddPickupModal() {
+            document.getElementById('addPickupModal').style.display = 'none';
+        }
+
+        function savePickup() {
+            const form = document.getElementById('addPickupForm');
+            if (form.checkValidity()) {
+                alert('自提点添加成功！');
+                closeAddPickupModal();
+                form.reset();
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        function editPickup(id) {
+            alert('编辑自提点 - ID: ' + id);
+        }
+
+        function deletePickup(id) {
+            if (confirm('确认删除该自提点？')) {
+                alert('自提点删除成功！');
+            }
+        }
+
+        window.onclick = function(event) {
+            const modals = ['addShippingModal', 'addTemplateModal', 'addPickupModal'];
+            modals.forEach(modalId => {
+                const modal = document.getElementById(modalId);
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

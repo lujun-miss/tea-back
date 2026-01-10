@@ -34,6 +34,14 @@
                 <i class="fas fa-newspaper"></i>
                 <span>内容管理</span>
             </a>
+            <a href="shop-list.html" class="sidebar-nav-item">
+                <i class="fas fa-store"></i>
+                <span>店铺管理</span>
+            </a>
+            <a href="shipping-config.html" class="sidebar-nav-item">
+                <i class="fas fa-shipping-fast"></i>
+                <span>发货配置</span>
+            </a>
             <a href="finance.html" class="sidebar-nav-item">
                 <i class="fas fa-chart-line"></i>
                 <span>财务管理</span>
@@ -65,6 +73,14 @@
                     <option value="flower">花茶</option>
                 </select>
                 <select class="filter-select">
+                    <option value="">全部店铺</option>
+                    <option value="shop1">西湖龙井旗舰店</option>
+                    <option value="shop2">武夷岩茶专营店</option>
+                    <option value="shop3">安溪铁观音加盟店</option>
+                    <option value="shop4">云南普洱茶专营店</option>
+                    <option value="shop5">福鼎白茶旗舰店</option>
+                </select>
+                <select class="filter-select">
                     <option value="">全部状态</option>
                     <option value="onsale">在售</option>
                     <option value="offsale">下架</option>
@@ -83,6 +99,7 @@
                             <th>商品信息</th>
                             <th>商品编号</th>
                             <th>分类</th>
+                            <th>所属店铺</th>
                             <th>价格</th>
                             <th>库存</th>
                             <th>销量</th>
@@ -96,14 +113,15 @@
                                 <div class="user-info">
                                     <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=100&h=100&fit=crop" alt="商品图片" class="user-avatar">
                                     <div class="user-details">
-                                        <span class="user-name">西湖龙井 2024春茶</span>
+                                        <span class="user-name">西湖龙井特级明前茶</span>
                                         <span class="user-phone">250g/罐</span>
                                     </div>
                                 </div>
                             </td>
                             <td>PRD001</td>
                             <td>绿茶</td>
-                            <td>¥288</td>
+                            <td>西湖龙井旗舰店</td>
+                            <td>¥188</td>
                             <td>156</td>
                             <td>892</td>
                             <td><span class="status-badge success">在售</span></td>
@@ -129,14 +147,15 @@
                                 <div class="user-info">
                                     <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=100&h=100&fit=crop" alt="商品图片" class="user-avatar">
                                     <div class="user-details">
-                                        <span class="user-name">金骏眉 正山小种</span>
+                                        <span class="user-name">金骏眉正山小种</span>
                                         <span class="user-phone">250g/罐</span>
                                     </div>
                                 </div>
                             </td>
                             <td>PRD002</td>
                             <td>红茶</td>
-                            <td>¥368</td>
+                            <td>武夷岩茶专营店</td>
+                            <td>¥268</td>
                             <td>98</td>
                             <td>654</td>
                             <td><span class="status-badge success">在售</span></td>
@@ -162,13 +181,14 @@
                                 <div class="user-info">
                                     <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=100&h=100&fit=crop" alt="商品图片" class="user-avatar">
                                     <div class="user-details">
-                                        <span class="user-name">普洱熟茶 2018</span>
+                                        <span class="user-name">普洱熟茶2018</span>
                                         <span class="user-phone">357g/饼</span>
                                     </div>
                                 </div>
                             </td>
                             <td>PRD003</td>
                             <td>普洱茶</td>
+                            <td>云南普洱茶专营店</td>
                             <td>¥288</td>
                             <td>45</td>
                             <td>423</td>
@@ -195,13 +215,14 @@
                                 <div class="user-info">
                                     <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=100&h=100&fit=crop" alt="商品图片" class="user-avatar">
                                     <div class="user-details">
-                                        <span class="user-name">铁观音 安溪铁观音</span>
+                                        <span class="user-name">铁观音安溪铁观音</span>
                                         <span class="user-phone">250g/罐</span>
                                     </div>
                                 </div>
                             </td>
                             <td>PRD004</td>
                             <td>乌龙茶</td>
+                            <td>安溪铁观音加盟店</td>
                             <td>¥248</td>
                             <td>0</td>
                             <td>312</td>
@@ -228,13 +249,14 @@
                                 <div class="user-info">
                                     <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=100&h=100&fit=crop" alt="商品图片" class="user-avatar">
                                     <div class="user-details">
-                                        <span class="user-name">白牡丹 福鼎白茶</span>
+                                        <span class="user-name">白牡丹福鼎白茶</span>
                                         <span class="user-phone">250g/罐</span>
                                     </div>
                                 </div>
                             </td>
                             <td>PRD005</td>
                             <td>白茶</td>
+                            <td>福鼎白茶旗舰店</td>
                             <td>¥328</td>
                             <td>78</td>
                             <td>256</td>
@@ -261,13 +283,14 @@
                                 <div class="user-info">
                                     <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=100&h=100&fit=crop" alt="商品图片" class="user-avatar">
                                     <div class="user-details">
-                                        <span class="user-name">茉莉花茶 福州茉莉</span>
+                                        <span class="user-name">茉莉花茶福州茉莉</span>
                                         <span class="user-phone">250g/罐</span>
                                     </div>
                                 </div>
                             </td>
                             <td>PRD006</td>
                             <td>花茶</td>
+                            <td>西湖龙井旗舰店</td>
                             <td>¥198</td>
                             <td>120</td>
                             <td>189</td>
@@ -283,6 +306,141 @@
                                         编辑
                                     </button>
                                     <button class="action-btn delete" onclick="deleteProduct(6)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1563822249366-3efb23b8e0c9?w=100&h=100&fit=crop" alt="商品图片" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">碧螺春苏州碧螺春</span>
+                                        <span class="user-phone">250g/罐</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>PRD007</td>
+                            <td>绿茶</td>
+                            <td>西湖龙井旗舰店</td>
+                            <td>¥168</td>
+                            <td>234</td>
+                            <td>567</td>
+                            <td><span class="status-badge success">在售</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewProduct(7)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editProduct(7)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteProduct(7)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1568952443738-3166af613b6c?w=100&h=100&fit=crop" alt="商品图片" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">大红袍武夷岩茶</span>
+                                        <span class="user-phone">250g/罐</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>PRD008</td>
+                            <td>乌龙茶</td>
+                            <td>武夷岩茶专营店</td>
+                            <td>¥368</td>
+                            <td>89</td>
+                            <td>432</td>
+                            <td><span class="status-badge success">在售</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewProduct(8)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editProduct(8)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteProduct(8)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=100&h=100&fit=crop" alt="商品图片" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">祁门红茶安徽祁门</span>
+                                        <span class="user-phone">250g/罐</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>PRD009</td>
+                            <td>红茶</td>
+                            <td>武夷岩茶专营店</td>
+                            <td>¥228</td>
+                            <td>167</td>
+                            <td>321</td>
+                            <td><span class="status-badge success">在售</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewProduct(9)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editProduct(9)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteProduct(9)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=100&h=100&fit=crop" alt="商品图片" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">寿眉老白茶</span>
+                                        <span class="user-phone">500g/饼</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>PRD010</td>
+                            <td>白茶</td>
+                            <td>¥458</td>
+                            <td>56</td>
+                            <td>198</td>
+                            <td><span class="status-badge success">在售</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewProduct(10)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editProduct(10)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteProduct(10)">
                                         <i class="fas fa-trash"></i>
                                         删除
                                     </button>

@@ -34,6 +34,14 @@
                 <i class="fas fa-newspaper"></i>
                 <span>内容管理</span>
             </a>
+            <a href="shop-list.html" class="sidebar-nav-item">
+                <i class="fas fa-store"></i>
+                <span>店铺管理</span>
+            </a>
+            <a href="shipping-config.html" class="sidebar-nav-item">
+                <i class="fas fa-shipping-fast"></i>
+                <span>发货配置</span>
+            </a>
             <a href="finance.html" class="sidebar-nav-item">
                 <i class="fas fa-chart-line"></i>
                 <span>财务管理</span>
@@ -66,8 +74,19 @@
                 <select class="filter-select">
                     <option value="">全部支付方式</option>
                     <option value="wechat">微信支付</option>
-                    <option value="alipay">支付宝</option>
-                    <option value="balance">余额支付</option>
+                </select>
+                <select class="filter-select">
+                    <option value="">全部配送方式</option>
+                    <option value="delivery">配送</option>
+                    <option value="pickup">自提</option>
+                </select>
+                <select class="filter-select">
+                    <option value="">全部店铺</option>
+                    <option value="shop1">西湖龙井旗舰店</option>
+                    <option value="shop2">武夷岩茶专营店</option>
+                    <option value="shop3">安溪铁观音加盟店</option>
+                    <option value="shop4">云南普洱茶专营店</option>
+                    <option value="shop5">福鼎白茶旗舰店</option>
                 </select>
                 <input type="date" class="search-input" placeholder="开始日期">
                 <input type="date" class="search-input" placeholder="结束日期">
@@ -84,8 +103,10 @@
                             <th>订单编号</th>
                             <th>客户信息</th>
                             <th>商品信息</th>
+                            <th>所属店铺</th>
                             <th>订单金额</th>
                             <th>支付方式</th>
+                            <th>配送方式</th>
                             <th>订单状态</th>
                             <th>下单时间</th>
                             <th>操作</th>
@@ -108,15 +129,17 @@
                                     <div class="order-item">
                                         <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
                                         <div class="order-item-info">
-                                            <div class="order-item-name">西湖龙井 2024春茶</div>
+                                            <div class="order-item-name">西湖龙井特级明前茶</div>
                                             <div class="order-item-spec">250g</div>
                                         </div>
                                         <div class="order-item-quantity">x2</div>
                                     </div>
                                 </div>
                             </td>
-                            <td>¥576</td>
+                            <td>西湖龙井旗舰店</td>
+                            <td>¥376</td>
                             <td>微信支付</td>
+                            <td>配送</td>
                             <td><span class="status-badge success">已完成</span></td>
                             <td>2024-01-09 14:30</td>
                             <td>
@@ -144,15 +167,17 @@
                                     <div class="order-item">
                                         <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
                                         <div class="order-item-info">
-                                            <div class="order-item-name">金骏眉 正山小种</div>
+                                            <div class="order-item-name">金骏眉正山小种</div>
                                             <div class="order-item-spec">250g</div>
                                         </div>
                                         <div class="order-item-quantity">x1</div>
                                     </div>
                                 </div>
                             </td>
-                            <td>¥368</td>
+                            <td>武夷岩茶专营店</td>
+                            <td>¥268</td>
                             <td>微信支付</td>
+                            <td>自提</td>
                             <td><span class="status-badge warning">待发货</span></td>
                             <td>2024-01-09 13:45</td>
                             <td>
@@ -184,15 +209,17 @@
                                     <div class="order-item">
                                         <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
                                         <div class="order-item-info">
-                                            <div class="order-item-name">普洱熟茶 2018</div>
+                                            <div class="order-item-name">普洱熟茶2018</div>
                                             <div class="order-item-spec">357g</div>
                                         </div>
                                         <div class="order-item-quantity">x1</div>
                                     </div>
                                 </div>
                             </td>
+                            <td>云南普洱茶专营店</td>
                             <td>¥288</td>
-                            <td>支付宝</td>
+                            <td>微信支付</td>
+                            <td>配送</td>
                             <td><span class="status-badge info">待支付</span></td>
                             <td>2024-01-09 12:30</td>
                             <td>
@@ -220,15 +247,17 @@
                                     <div class="order-item">
                                         <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
                                         <div class="order-item-info">
-                                            <div class="order-item-name">铁观音 安溪铁观音</div>
+                                            <div class="order-item-name">铁观音安溪铁观音</div>
                                             <div class="order-item-spec">250g</div>
                                         </div>
                                         <div class="order-item-quantity">x2</div>
                                     </div>
                                 </div>
                             </td>
+                            <td>安溪铁观音加盟店</td>
                             <td>¥496</td>
                             <td>微信支付</td>
+                            <td>配送</td>
                             <td><span class="status-badge danger">已取消</span></td>
                             <td>2024-01-09 11:15</td>
                             <td>
@@ -256,7 +285,7 @@
                                     <div class="order-item">
                                         <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
                                         <div class="order-item-info">
-                                            <div class="order-item-name">西湖龙井 2024春茶</div>
+                                            <div class="order-item-name">西湖龙井特级明前茶</div>
                                             <div class="order-item-spec">250g</div>
                                         </div>
                                         <div class="order-item-quantity">x1</div>
@@ -264,15 +293,17 @@
                                     <div class="order-item">
                                         <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=100&h=100&fit=crop" alt="商品图片" class="order-item-image">
                                         <div class="order-item-info">
-                                            <div class="order-item-name">金骏眉 正山小种</div>
+                                            <div class="order-item-name">金骏眉正山小种</div>
                                             <div class="order-item-spec">250g</div>
                                         </div>
                                         <div class="order-item-quantity">x1</div>
                                     </div>
                                 </div>
                             </td>
-                            <td>¥656</td>
-                            <td>余额支付</td>
+                            <td>西湖龙井旗舰店</td>
+                            <td>¥456</td>
+                            <td>微信支付</td>
+                            <td>自提</td>
                             <td><span class="status-badge purple">已发货</span></td>
                             <td>2024-01-09 10:20</td>
                             <td>
@@ -344,6 +375,16 @@
                     <div class="form-group">
                         <label>支付方式</label>
                         <input type="text" value="微信支付" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>所属店铺</label>
+                        <input type="text" value="西湖龙井旗舰店" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>配送方式</label>
+                        <input type="text" value="配送" readonly>
                     </div>
                 </div>
                 <div class="form-group">

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>店铺管理 - 茶叶商城后台</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>茶叶商城</h1>
+            <p>后台管理系统</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="../index.html" class="sidebar-nav-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="user-list.html" class="sidebar-nav-item">
+                <i class="fas fa-users"></i>
+                <span>用户管理</span>
+            </a>
+            <a href="product-list.html" class="sidebar-nav-item">
+                <i class="fas fa-box"></i>
+                <span>商品管理</span>
+            </a>
+            <a href="order-list.html" class="sidebar-nav-item">
+                <i class="fas fa-shopping-cart"></i>
+                <span>订单管理</span>
+            </a>
+            <a href="article-list.html" class="sidebar-nav-item">
+                <i class="fas fa-newspaper"></i>
+                <span>内容管理</span>
+            </a>
+            <a href="shop-list.html" class="sidebar-nav-item active">
+                <i class="fas fa-store"></i>
+                <span>店铺管理</span>
+            </a>
+            <a href="shipping-config.html" class="sidebar-nav-item">
+                <i class="fas fa-shipping-fast"></i>
+                <span>发货配置</span>
+            </a>
+            <a href="finance.html" class="sidebar-nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>财务管理</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h2>店铺管理</h2>
+            <div class="header-actions">
+                <button class="btn btn-primary" onclick="openAddShopModal()">
+                    <i class="fas fa-plus"></i>
+                    添加店铺
+                </button>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon green">
+                    <i class="fas fa-store"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>店铺总数</h4>
+                    <div class="value">5</div>
+                    <div class="trend"><i class="fas fa-arrow-up"></i> 2家</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon blue">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>营业中</h4>
+                    <div class="value">4</div>
+                    <div class="trend"><i class="fas fa-arrow-up"></i> 1家</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">
+                    <i class="fas fa-pause-circle"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>暂停营业</h4>
+                    <div class="value">1</div>
+                    <div class="trend"><i class="fas fa-minus"></i> 0家</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon purple">
+                    <i class="fas fa-box"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>商品总数</h4>
+                    <div class="value">156</div>
+                    <div class="trend"><i class="fas fa-arrow-up"></i> 12件</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="搜索店铺名称或编号">
+                <select class="filter-select">
+                    <option value="">全部状态</option>
+                    <option value="open">营业中</option>
+                    <option value="closed">暂停营业</option>
+                    <option value="deleted">已删除</option>
+                </select>
+                <select class="filter-select">
+                    <option value="">全部类型</option>
+                    <option value="flagship">旗舰店</option>
+                    <option value="specialty">专营店</option>
+                    <option value="franchise">加盟店</option>
+                </select>
+                <button class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                    搜索
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>店铺信息</th>
+                            <th>店铺编号</th>
+                            <th>店铺类型</th>
+                            <th>商品数量</th>
+                            <th>订单数量</th>
+                            <th>营业额</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=100&h=100&fit=crop" alt="店铺图片" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">西湖龙井旗舰店</span>
+                                        <span class="user-phone">杭州市西湖区</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>SHOP001</td>
+                            <td><span class="status-badge success">旗舰店</span></td>
+                            <td>45</td>
+                            <td>1,256</td>
+                            <td>¥128,580</td>
+                            <td><span class="status-badge success">营业中</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewShop(1)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editShop(1)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteShop(1)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=100&h=100&fit=crop" alt="店铺图片" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">武夷岩茶专营店</span>
+                                        <span class="user-phone">武夷山市</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>SHOP002</td>
+                            <td><span class="status-badge info">专营店</span></td>
+                            <td>32</td>
+                            <td>892</td>
+                            <td>¥86,420</td>
+                            <td><span class="status-badge success">营业中</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewShop(2)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editShop(2)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteShop(2)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=100&h=100&fit=crop" alt="店铺图片" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">安溪铁观音加盟店</span>
+                                        <span class="user-phone">福建安溪县</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>SHOP003</td>
+                            <td><span class="status-badge warning">加盟店</span></td>
+                            <td>28</td>
+                            <td>654</td>
+                            <td>¥52,380</td>
+                            <td><span class="status-badge success">营业中</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewShop(3)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editShop(3)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteShop(3)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=100&h=100&fit=crop" alt="店铺图片" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">云南普洱茶专营店</span>
+                                        <span class="user-phone">云南昆明市</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>SHOP004</td>
+                            <td><span class="status-badge info">专营店</span></td>
+                            <td>36</td>
+                            <td>1,023</td>
+                            <td>¥95,680</td>
+                            <td><span class="status-badge success">营业中</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewShop(4)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editShop(4)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteShop(4)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=100&h=100&fit=crop" alt="店铺图片" class="user-avatar">
+                                    <div class="user-details">
+                                        <span class="user-name">福鼎白茶旗舰店</span>
+                                        <span class="user-phone">福建福鼎市</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>SHOP005</td>
+                            <td><span class="status-badge success">旗舰店</span></td>
+                            <td>15</td>
+                            <td>234</td>
+                            <td>¥18,560</td>
+                            <td><span class="status-badge warning">暂停营业</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewShop(5)">
+                                        <i class="fas fa-eye"></i>
+                                        查看
+                                    </button>
+                                    <button class="action-btn edit" onclick="editShop(5)">
+                                        <i class="fas fa-edit"></i>
+                                        编辑
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteShop(5)">
+                                        <i class="fas fa-trash"></i>
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <span class="pagination-info">共 5 条记录</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="addShopModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>添加店铺</h3>
+                <button class="modal-close" onclick="closeAddShopModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addShopForm">
+                    <div class="form-group">
+                        <label>店铺名称</label>
+                        <input type="text" class="form-control" placeholder="请输入店铺名称" required>
+                    </div>
+                    <div class="form-group">
+                        <label>店铺类型</label>
+                        <select class="form-control" required>
+                            <option value="">请选择店铺类型</option>
+                            <option value="flagship">旗舰店</option>
+                            <option value="specialty">专营店</option>
+                            <option value="franchise">加盟店</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>店铺地址</label>
+                        <input type="text" class="form-control" placeholder="请输入店铺地址" required>
+                    </div>
+                    <div class="form-group">
+                        <label>联系电话</label>
+                        <input type="tel" class="form-control" placeholder="请输入联系电话" required>
+                    </div>
+                    <div class="form-group">
+                        <label>店铺描述</label>
+                        <textarea class="form-control" rows="3" placeholder="请输入店铺描述"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>店铺图片</label>
+                        <input type="file" class="form-control" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label>营业状态</label>
+                        <select class="form-control" required>
+                            <option value="open">营业中</option>
+                            <option value="closed">暂停营业</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAddShopModal()">取消</button>
+                <button class="btn btn-primary" onclick="saveShop()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.sidebar-nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                document.querySelectorAll('.sidebar-nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        function openAddShopModal() {
+            document.getElementById('addShopModal').style.display = 'block';
+        }
+
+        function closeAddShopModal() {
+            document.getElementById('addShopModal').style.display = 'none';
+        }
+
+        function saveShop() {
+            const form = document.getElementById('addShopForm');
+            if (form.checkValidity()) {
+                alert('店铺添加成功！');
+                closeAddShopModal();
+                form.reset();
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        function viewShop(id) {
+            alert('查看店铺详情 - 店铺ID: ' + id);
+        }
+
+        function editShop(id) {
+            alert('编辑店铺信息 - 店铺ID: ' + id);
+        }
+
+        function deleteShop(id) {
+            if (confirm('确认删除该店铺？')) {
+                alert('店铺删除成功！');
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('addShopModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

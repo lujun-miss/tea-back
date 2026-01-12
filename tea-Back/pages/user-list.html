@@ -53,208 +53,204 @@
         </div>
 
         <div class="card">
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="搜索用户姓名、手机号或邮箱">
-                <select class="filter-select">
-                    <option value="">全部状态</option>
-                    <option value="active">正常</option>
-                    <option value="inactive">禁用</option>
-                </select>
-                <select class="filter-select">
-                    <option value="">全部会员等级</option>
-                    <option value="vip1">普通会员</option>
-                    <option value="vip2">银卡会员</option>
-                    <option value="vip3">金卡会员</option>
-                    <option value="vip4">钻石会员</option>
-                </select>
-                <button class="btn btn-primary">
-                    <i class="fas fa-search"></i>
-                    搜索
-                </button>
+            <div class="search-section">
+                <div class="search-filters">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="search-input" placeholder="搜索用户姓名、手机号或邮箱">
+                    </div>
+                    <select class="filter-select">
+                        <option value="">全部状态</option>
+                        <option value="active">正常</option>
+                        <option value="inactive">禁用</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">全部会员等级</option>
+                        <option value="vip1">普通会员</option>
+                        <option value="vip2">银卡会员</option>
+                        <option value="vip3">金卡会员</option>
+                        <option value="vip4">钻石会员</option>
+                    </select>
+                </div>
+                <div class="search-actions">
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-redo"></i>
+                        重置
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                        搜索
+                    </button>
+                </div>
             </div>
 
-            <div class="table-container">
-                <table>
+            <div class="table-wrapper">
+                <table class="user-table">
                     <thead>
                         <tr>
-                            <th>用户信息</th>
-                            <th>手机号</th>
-                            <th>邮箱</th>
-                            <th>会员等级</th>
-                            <th>累计消费</th>
-                            <th>订单数量</th>
-                            <th>注册时间</th>
-                            <th>状态</th>
-                            <th>操作</th>
+                            <th class="col-user">用户信息</th>
+                            <th class="col-phone">手机号</th>
+                            <th class="col-email">邮箱</th>
+                            <th class="col-vip">会员等级</th>
+                            <th class="col-consume">累计消费</th>
+                            <th class="col-orders">订单数量</th>
+                            <th class="col-time">注册时间</th>
+                            <th class="col-status">状态</th>
+                            <th class="col-action">操作</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                                <div class="user-info">
+                                <div class="user-info-cell">
                                     <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
                                     <div class="user-details">
                                         <span class="user-name">张三</span>
-                                        <span class="user-phone">ID: 10001</span>
+                                        <span class="user-id">ID: 10001</span>
                                     </div>
                                 </div>
                             </td>
-                            <td>138****8888</td>
-                            <td>zhangsan@example.com</td>
-                            <td><span class="status-badge success">金卡会员</span></td>
-                            <td>¥12,580</td>
-                            <td>28</td>
-                            <td>2024-01-05 10:30</td>
+                            <td class="phone-cell">138****8888</td>
+                            <td class="email-cell">zhangsan@example.com</td>
+                            <td><span class="vip-badge gold">金卡会员</span></td>
+                            <td class="consume-cell">¥12,580</td>
+                            <td class="orders-cell">28</td>
+                            <td class="time-cell">2024-01-05</td>
                             <td><span class="status-badge success">正常</span></td>
                             <td>
                                 <div class="action-buttons">
-                                    <button class="action-btn view" onclick="viewUser(10001)">
+                                    <button class="action-btn view" onclick="viewUser(10001)" title="查看">
                                         <i class="fas fa-eye"></i>
-                                        查看
                                     </button>
-                                    <button class="action-btn edit" onclick="editUser(10001)">
+                                    <button class="action-btn edit" onclick="editUser(10001)" title="编辑">
                                         <i class="fas fa-edit"></i>
-                                        编辑
                                     </button>
-                                    <button class="action-btn delete" onclick="deleteUser(10001)">
+                                    <button class="action-btn delete" onclick="deleteUser(10001)" title="删除">
                                         <i class="fas fa-trash"></i>
-                                        删除
                                     </button>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div class="user-info">
+                                <div class="user-info-cell">
                                     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
                                     <div class="user-details">
                                         <span class="user-name">李四</span>
-                                        <span class="user-phone">ID: 10002</span>
+                                        <span class="user-id">ID: 10002</span>
                                     </div>
                                 </div>
                             </td>
-                            <td>139****9999</td>
-                            <td>lisi@example.com</td>
-                            <td><span class="status-badge info">银卡会员</span></td>
-                            <td>¥5,680</td>
-                            <td>15</td>
-                            <td>2024-01-08 14:20</td>
+                            <td class="phone-cell">139****9999</td>
+                            <td class="email-cell">lisi@example.com</td>
+                            <td><span class="vip-badge silver">银卡会员</span></td>
+                            <td class="consume-cell">¥5,680</td>
+                            <td class="orders-cell">15</td>
+                            <td class="time-cell">2024-01-08</td>
                             <td><span class="status-badge success">正常</span></td>
                             <td>
                                 <div class="action-buttons">
-                                    <button class="action-btn view" onclick="viewUser(10002)">
+                                    <button class="action-btn view" onclick="viewUser(10002)" title="查看">
                                         <i class="fas fa-eye"></i>
-                                        查看
                                     </button>
-                                    <button class="action-btn edit" onclick="editUser(10002)">
+                                    <button class="action-btn edit" onclick="editUser(10002)" title="编辑">
                                         <i class="fas fa-edit"></i>
-                                        编辑
                                     </button>
-                                    <button class="action-btn delete" onclick="deleteUser(10002)">
+                                    <button class="action-btn delete" onclick="deleteUser(10002)" title="删除">
                                         <i class="fas fa-trash"></i>
-                                        删除
                                     </button>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div class="user-info">
+                                <div class="user-info-cell">
                                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
                                     <div class="user-details">
                                         <span class="user-name">王五</span>
-                                        <span class="user-phone">ID: 10003</span>
+                                        <span class="user-id">ID: 10003</span>
                                     </div>
                                 </div>
                             </td>
-                            <td>137****7777</td>
-                            <td>wangwu@example.com</td>
-                            <td><span class="status-badge warning">普通会员</span></td>
-                            <td>¥1,280</td>
-                            <td>5</td>
-                            <td>2024-01-09 09:15</td>
+                            <td class="phone-cell">137****7777</td>
+                            <td class="email-cell">wangwu@example.com</td>
+                            <td><span class="vip-badge normal">普通会员</span></td>
+                            <td class="consume-cell">¥1,280</td>
+                            <td class="orders-cell">5</td>
+                            <td class="time-cell">2024-01-09</td>
                             <td><span class="status-badge success">正常</span></td>
                             <td>
                                 <div class="action-buttons">
-                                    <button class="action-btn view" onclick="viewUser(10003)">
+                                    <button class="action-btn view" onclick="viewUser(10003)" title="查看">
                                         <i class="fas fa-eye"></i>
-                                        查看
                                     </button>
-                                    <button class="action-btn edit" onclick="editUser(10003)">
+                                    <button class="action-btn edit" onclick="editUser(10003)" title="编辑">
                                         <i class="fas fa-edit"></i>
-                                        编辑
                                     </button>
-                                    <button class="action-btn delete" onclick="deleteUser(10003)">
+                                    <button class="action-btn delete" onclick="deleteUser(10003)" title="删除">
                                         <i class="fas fa-trash"></i>
-                                        删除
                                     </button>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div class="user-info">
+                                <div class="user-info-cell">
                                     <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
                                     <div class="user-details">
                                         <span class="user-name">赵六</span>
-                                        <span class="user-phone">ID: 10004</span>
+                                        <span class="user-id">ID: 10004</span>
                                     </div>
                                 </div>
                             </td>
-                            <td>136****6666</td>
-                            <td>zhaoliu@example.com</td>
-                            <td><span class="status-badge purple">钻石会员</span></td>
-                            <td>¥28,580</td>
-                            <td>56</td>
-                            <td>2023-12-20 16:45</td>
+                            <td class="phone-cell">136****6666</td>
+                            <td class="email-cell">zhaoliu@example.com</td>
+                            <td><span class="vip-badge diamond">钻石会员</span></td>
+                            <td class="consume-cell">¥28,580</td>
+                            <td class="orders-cell">56</td>
+                            <td class="time-cell">2023-12-20</td>
                             <td><span class="status-badge danger">禁用</span></td>
                             <td>
                                 <div class="action-buttons">
-                                    <button class="action-btn view" onclick="viewUser(10004)">
+                                    <button class="action-btn view" onclick="viewUser(10004)" title="查看">
                                         <i class="fas fa-eye"></i>
-                                        查看
                                     </button>
-                                    <button class="action-btn edit" onclick="editUser(10004)">
+                                    <button class="action-btn edit" onclick="editUser(10004)" title="编辑">
                                         <i class="fas fa-edit"></i>
-                                        编辑
                                     </button>
-                                    <button class="action-btn delete" onclick="deleteUser(10004)">
+                                    <button class="action-btn delete" onclick="deleteUser(10004)" title="删除">
                                         <i class="fas fa-trash"></i>
-                                        删除
                                     </button>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div class="user-info">
+                                <div class="user-info-cell">
                                     <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="用户头像" class="user-avatar">
                                     <div class="user-details">
                                         <span class="user-name">孙七</span>
-                                        <span class="user-phone">ID: 10005</span>
+                                        <span class="user-id">ID: 10005</span>
                                     </div>
                                 </div>
                             </td>
-                            <td>135****5555</td>
-                            <td>sunqi@example.com</td>
-                            <td><span class="status-badge info">银卡会员</span></td>
-                            <td>¥8,680</td>
-                            <td>22</td>
-                            <td>2024-01-07 11:30</td>
+                            <td class="phone-cell">135****5555</td>
+                            <td class="email-cell">sunqi@example.com</td>
+                            <td><span class="vip-badge silver">银卡会员</span></td>
+                            <td class="consume-cell">¥8,680</td>
+                            <td class="orders-cell">22</td>
+                            <td class="time-cell">2024-01-07</td>
                             <td><span class="status-badge success">正常</span></td>
                             <td>
                                 <div class="action-buttons">
-                                    <button class="action-btn view" onclick="viewUser(10005)">
+                                    <button class="action-btn view" onclick="viewUser(10005)" title="查看">
                                         <i class="fas fa-eye"></i>
-                                        查看
                                     </button>
-                                    <button class="action-btn edit" onclick="editUser(10005)">
+                                    <button class="action-btn edit" onclick="editUser(10005)" title="编辑">
                                         <i class="fas fa-edit"></i>
-                                        编辑
                                     </button>
-                                    <button class="action-btn delete" onclick="deleteUser(10005)">
+                                    <button class="action-btn delete" onclick="deleteUser(10005)" title="删除">
                                         <i class="fas fa-trash"></i>
-                                        删除
                                     </button>
                                 </div>
                             </td>
@@ -263,19 +259,21 @@
                 </table>
             </div>
 
-            <div class="pagination">
-                <button class="pagination-btn">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="pagination-btn active">1</button>
-                <button class="pagination-btn">2</button>
-                <button class="pagination-btn">3</button>
-                <button class="pagination-btn">4</button>
-                <button class="pagination-btn">5</button>
-                <button class="pagination-btn">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <span class="pagination-info">共 128 条记录</span>
+            <div class="pagination-wrapper">
+                <div class="pagination-info">共 128 条记录，当前第 1 页</div>
+                <div class="pagination">
+                    <button class="pagination-btn" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn">4</button>
+                    <button class="pagination-btn">5</button>
+                    <button class="pagination-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

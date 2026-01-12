@@ -1,0 +1,5 @@
+tea-Back/.git/
+tea-Front/.git/
+node_modules/
+.DS_Store
+*.log

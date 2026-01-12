@@ -124,15 +124,22 @@
                 <div class="bg-white rounded-2xl p-4 mb-4 card-shadow">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-sm font-medium text-gray-800">配送方式</span>
-                        <div class="flex items-center gap-2 text-xs text-gray-500">
-                            <span>顺丰快递</span>
-                            <i class="fas fa-chevron-right"></i>
+                        <div class="flex items-center gap-2 bg-gray-100 rounded-full p-1">
+                            <button id="deliveryModeBtn" class="px-3 py-1 rounded-full text-xs font-medium bg-white text-green-600 shadow-sm transition-all" onclick="toggleDeliveryMode('delivery')">快递</button>
+                            <button id="pickupModeBtn" class="px-3 py-1 rounded-full text-xs font-medium text-gray-500 transition-all" onclick="toggleDeliveryMode('pickup')">自提</button>
                         </div>
                     </div>
-                    <div class="flex items-center justify-between">
+                    <div id="deliveryOption" class="flex items-center justify-between">
                         <span class="text-sm font-medium text-gray-800">收货地址</span>
                         <div class="flex items-center gap-2 text-xs text-gray-500">
                             <span>浙江省杭州市西湖区...</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div id="pickupOption" class="hidden flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-800">自提点</span>
+                        <div class="flex items-center gap-2 text-xs text-gray-500">
+                            <span>广东中山八合里店</span>
                             <i class="fas fa-chevron-right"></i>
                         </div>
                     </div>
@@ -218,5 +225,26 @@
 
         <div class="iphone-home-indicator"></div>
     </div>
+
+    <script>
+        function toggleDeliveryMode(mode) {
+            const deliveryBtn = document.getElementById('deliveryModeBtn');
+            const pickupBtn = document.getElementById('pickupModeBtn');
+            const deliveryOption = document.getElementById('deliveryOption');
+            const pickupOption = document.getElementById('pickupOption');
+
+            if (mode === 'delivery') {
+                deliveryBtn.className = 'px-3 py-1 rounded-full text-xs font-medium bg-white text-green-600 shadow-sm transition-all';
+                pickupBtn.className = 'px-3 py-1 rounded-full text-xs font-medium text-gray-500 transition-all';
+                deliveryOption.classList.remove('hidden');
+                pickupOption.classList.add('hidden');
+            } else {
+                pickupBtn.className = 'px-3 py-1 rounded-full text-xs font-medium bg-white text-green-600 shadow-sm transition-all';
+                deliveryBtn.className = 'px-3 py-1 rounded-full text-xs font-medium text-gray-500 transition-all';
+                pickupOption.classList.remove('hidden');
+                deliveryOption.classList.add('hidden');
+            }
+        }
+    </script>
 </body>
 </html>
